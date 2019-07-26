@@ -3,6 +3,7 @@ import { getRandomNum } from './utils';
 
 export default (function() {
   let numJumpers, jumpyClass;
+  let isRunning = false;
 
   const winWidth = window.outerWidth;
   const frag = document.createDocumentFragment();
@@ -43,15 +44,14 @@ export default (function() {
           runningAnimation.startAnimation();
 
           const checkifStopped = setInterval(function() {
-            // if animation has stopped
-            // start up the animation again
-            if (!runningAnimation.projectileAnimation) {
+            if (isRunning && !runningAnimation.projectileAnimation) {
               clearInterval(checkifStopped);
               Jump();
             }
 
-            // stop it
-            // clearInterval(checkifStopped);
+            if (!isRunning) {
+              clearInterval(checkifStopped);
+            }
           }, 1000);
         }, initDelay);
       })(i);
@@ -67,7 +67,13 @@ export default (function() {
     return true;
   };
 
+  const stop = function() {
+    isRunning = false;
+  };
+
   return {
-    init
+    init,
+    stop,
+    start: jumpEm
   };
 })();
