@@ -35,7 +35,7 @@ class Projectile {
     return this.frictionCo * this.g;
   }
 
-  degreesToRadians() {
+  degreesToRadians(degrees) {
     return degrees * (Math.PI / 180);
   }
 

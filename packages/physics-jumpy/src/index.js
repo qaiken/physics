@@ -11,7 +11,7 @@ export default (function() {
     for (let i = 0; i < numJumpers; ++i) {
       const jumper = document.createElement('i');
 
-      jumper.classList.add('jumper', 'jumper-' + i, jumpyClass);
+      jumper.classList.add('jumper', `jumper-${i}`, jumpyClass);
       jumper.style.zIndex = getRandomNum(0, 10);
 
       frag.appendChild(jumper);
@@ -58,7 +58,7 @@ export default (function() {
     }
   };
 
-  const init = function(jumperCount = 20, className = '') {
+  const init = function(jumperCount = 20, className = 'jumpy-class') {
     numJumpers = jumperCount;
     jumpyClass = className;
 
