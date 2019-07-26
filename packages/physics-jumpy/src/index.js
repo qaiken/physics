@@ -69,6 +69,7 @@ export default (function() {
 
   const stop = function() {
     isRunning = false;
+    return true;
   };
 
   return {
