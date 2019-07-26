@@ -1,5 +1,5 @@
 {
-  "name": "@physics/projectile",
+  "name": "physics-projectile",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
@@ -8,5 +8,6 @@
   ],
   "author": "Quinton Aiken <quintonlaiken@gmail.com>",
   "license": "MIT",
-  "repository": "https://github.com/qaiken/physics/tree/master/packages/physics-projectile"
+  "repository": "https://github.com/qaiken/physics/tree/master/packages/physics-projectile",
+  "gitHead": "c3c78843a922e6891030cda94ccc4a6b919eed0b"
 }

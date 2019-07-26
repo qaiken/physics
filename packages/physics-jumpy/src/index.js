@@ -1,4 +1,4 @@
-import Projectile from '@physics/projectile';
+import Projectile from 'physics-projectile';
 import { getRandomNum } from './utils';
 
 export default (function() {
