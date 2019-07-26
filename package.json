@@ -4,7 +4,7 @@
   "scripts": {
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "lint": "eslint packages/"
+    "lint": "eslint . --ext js"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
