@@ -61,6 +61,7 @@ export default (function() {
   const init = function(jumperCount = 20, className = 'jumpy-class') {
     numJumpers = jumperCount;
     jumpyClass = className;
+    isRunning = true;
 
     initJumpers();
     jumpEm();
