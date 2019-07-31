@@ -1,7 +1,7 @@
 defaults: &defaults
   docker:
     - image: circleci/node:10.15.1-browsers
-  working_directory: ~/physics
+  working_directory: &root ~/physics
 
 version: 2
 jobs:
@@ -31,11 +31,10 @@ jobs:
             - packages/physics-jumpy/node_modules
             - packages/physics-projectile/node_modules
       - persist_to_workspace:
-          root: ~/physics
+          root: *root
           paths:
             - .npmrc
-            - packages/physics-jumpy/dist
-            - packages/physics-projectile/dist
+            - packages/*/dist
 
   test:
     <<: *defaults
@@ -44,7 +43,7 @@ jobs:
       - restore_cache:
           key: *dep_cache_key
       - attach_workspace:
-          at: packages
+          at: *root
       - run:
           name: Lint
           command: npm run lint
@@ -59,7 +58,7 @@ jobs:
       - restore_cache:
           key: *dep_cache_key
       - attach_workspace:
-          at: packages
+          at: *root
       - run:
           name: Publish
           command: npm run publish
