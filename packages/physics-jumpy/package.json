@@ -1,6 +1,6 @@
 {
   "name": "physics-jumpy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Display randomized projectile motion objects on your screen!",
   "main": "dist/index.js",
   "keywords": [
@@ -11,7 +11,7 @@
   "repository": "https://github.com/qaiken/physics/tree/master/packages/physics-jumpy",
   "gitHead": "5000d74a934d61b383f4bb2b34ae955d746c1818",
   "dependencies": {
-    "physics-projectile": "^1.0.1"
+    "physics-projectile": "^1.0.2"
   },
   "scripts": {
     "build": "npm-run-all --parallel build:*",

@@ -1,6 +1,6 @@
 {
   "name": "physics-projectile",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Model projectile motion in OOP",
   "main": "dist/index.js",
   "keywords": [
