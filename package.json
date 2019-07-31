@@ -6,8 +6,8 @@
     "clean": "rm -rf ./packages/*/dist",
     "test:coverage": "npm run test -- --coverage",
     "lint": "eslint . --ext js",
-    "build": "lerna run build",
-    "publish": "npm run clean && lerna publish from-package --yes",
+    "build": "npm run clean && lerna run build",
+    "publish": "lerna publish from-package --yes",
     "bootstrap": "lerna bootstrap --hoist && npm run build"
   },
   "devDependencies": {
