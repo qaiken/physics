@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Installing dependencies with `npm install`
           command: |
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/physics/.npmrc
             npm install
       - run:
           name: Bootstrapping Lerna
@@ -31,10 +31,11 @@ jobs:
             - packages/physics-jumpy/node_modules
             - packages/physics-projectile/node_modules
       - persist_to_workspace:
-          root: packages
+          root: ~/physics
           paths:
-            - physics-jumpy/dist
-            - physics-projectile/dist
+            - .npmrc
+            - packages/physics-jumpy/dist
+            - packages/physics-projectile/dist
 
   test:
     <<: *defaults
