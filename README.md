@@ -19,7 +19,7 @@ npm i
 lerna version
 ```
 
-submit PR to master
+then submit PR to master
 
 ## Packages
 
