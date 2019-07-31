@@ -1,7 +1,7 @@
 {
   "name": "physics-jumpy",
   "version": "1.0.1",
-  "description": "",
+  "description": "Display randomized projectile motion objects on your screen!",
   "main": "dist/index.js",
   "keywords": [
     "physics"

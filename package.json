@@ -1,6 +1,7 @@
 {
   "name": "physics",
   "private": true,
+  "description": "Physics",
   "scripts": {
     "test": "jest",
     "clean": "rm -rf ./packages/*/dist",
