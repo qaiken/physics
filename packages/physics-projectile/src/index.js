@@ -6,7 +6,8 @@ class Projectile {
     frictionCo = 0.5,
     degrees = 90,
     initXPos = 0,
-    initYPos = -50
+    initYPos = -50,
+    minYPos = -50
   }) {
     if (!selector) {
       throw new Error('must supply a selector');
@@ -23,12 +24,15 @@ class Projectile {
 
     this.initXPos = initXPos;
     this.initYPos = initYPos;
+    this.minYPos = minYPos;
 
     this.initVx = this.getInitVx();
     this.initVy = this.getInitVy();
 
     this.animationStartTime = 0;
     this.frictionStartTime = 0;
+
+    this.projectileAnimation = null;
   }
 
   getFrictionalA() {
@@ -58,9 +62,9 @@ class Projectile {
 
     let yPos =
       this.initYPos + this.initVy * t + (1 / 2) * this.g * Math.pow(t, 2);
-    yPos = Math.max(0, yPos);
+    yPos = Math.max(this.minYPos, yPos);
 
-    if (this.projectileAnimation > 1 && yPos === 0) {
+    if (this.projectileAnimation > 1 && yPos <= this.minYPos) {
       this.frictionStartTime = this.frictionStartTime || t;
       frictionTime = t - this.frictionStartTime;
     }
@@ -100,7 +104,7 @@ class Projectile {
 
   stopAnimation() {
     cancelAnimationFrame(this.projectileAnimation);
-    this.projectileAnimation = undefined;
+    this.projectileAnimation = null;
 
     return true;
   }
