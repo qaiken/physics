@@ -2,17 +2,17 @@ import Projectile from 'physics-projectile';
 import { getRandomNum } from './utils';
 
 export default (function() {
-  let numJumpers, jumpyClass;
+  let _initYPos, _minYPos, _numJumpers, _className;
   let isRunning = false;
 
   const winWidth = window.outerWidth;
   const frag = document.createDocumentFragment();
 
   const initJumpers = function() {
-    for (let i = 0; i < numJumpers; ++i) {
-      const jumper = document.createElement('i');
+    for (let i = 0; i < _numJumpers; ++i) {
+      const jumper = document.createElement('div');
 
-      jumper.classList.add('jumper', `jumper-${i}`, jumpyClass);
+      jumper.classList.add('jumper', `jumper-${i}`, _className);
       jumper.style.zIndex = getRandomNum(0, 10);
 
       frag.appendChild(jumper);
@@ -22,15 +22,16 @@ export default (function() {
   };
 
   const jumpEm = function() {
-    for (let i = 0; i < numJumpers; ++i) {
+    for (let i = 0; i < _numJumpers; ++i) {
       (function(i) {
         let initDelay = getRandomNum(0, 5000);
-        let initV = getRandomNum(250, 750);
-        let g = getRandomNum(-1000, 0);
-        let degrees = getRandomNum(70, 90);
-        let initXPos = getRandomNum(0, winWidth);
 
-        setTimeout(function Jump() {
+        setTimeout(function jump() {
+          let initV = getRandomNum(250, 750);
+          let g = getRandomNum(-1000, 0);
+          let degrees = getRandomNum(70, 90);
+          let initXPos = getRandomNum(0, winWidth);
+
           let runningAnimation = new Projectile({
             selector: document.querySelector(`.jumper-${i}`),
             initV: initV,
@@ -38,7 +39,8 @@ export default (function() {
             frictionCo: 0.5,
             degrees: degrees,
             initXPos: initXPos,
-            initYPos: -50
+            initYPos: _initYPos,
+            minYPos: _minYPos
           });
 
           runningAnimation.startAnimation();
@@ -46,7 +48,7 @@ export default (function() {
           const checkifStopped = setInterval(function() {
             if (isRunning && !runningAnimation.projectileAnimation) {
               clearInterval(checkifStopped);
-              Jump();
+              jump();
             }
 
             if (!isRunning) {
@@ -58,9 +60,16 @@ export default (function() {
     }
   };
 
-  const init = function(jumperCount = 20, className = 'jumpy-class') {
-    numJumpers = jumperCount;
-    jumpyClass = className;
+  const init = function({
+    numJumpers = 20,
+    className = 'jumpy-class',
+    initYPos = -50,
+    minYPos = -100
+  }) {
+    _initYPos = initYPos;
+    _minYPos = minYPos;
+    _numJumpers = numJumpers;
+    _className = className;
     isRunning = true;
 
     initJumpers();
