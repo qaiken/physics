@@ -1,6 +1,6 @@
 {
   "name": "physics-jumpy",
-  "version": "0.10.1",
+  "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
   "keywords": [
@@ -11,7 +11,7 @@
   "repository": "https://github.com/qaiken/physics/tree/master/packages/physics-jumpy",
   "gitHead": "5000d74a934d61b383f4bb2b34ae955d746c1818",
   "dependencies": {
-    "physics-projectile": "^0.10.1"
+    "physics-projectile": "^1.0.0"
   },
   "scripts": {
     "build": "npm-run-all --parallel build:*",
