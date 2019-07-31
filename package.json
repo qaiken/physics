@@ -6,6 +6,7 @@
     "clean": "rm -rf ./packages/*/dist",
     "test:coverage": "npm run test -- --coverage",
     "lint": "eslint . --ext js",
+    "prepare": "npm run bootstrap",
     "build": "npm run clean && lerna run build",
     "publish": "lerna publish from-package --yes",
     "bootstrap": "lerna bootstrap --hoist && npm run build"
