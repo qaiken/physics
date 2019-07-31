@@ -7,7 +7,7 @@
     "test:coverage": "npm run test -- --coverage",
     "lint": "eslint . --ext js",
     "build": "npm run clean && lerna run build",
-    "publish": "lerna publish from-package --yes",
+    "publish": "lerna publish from-git --yes",
     "bootstrap": "lerna bootstrap --hoist && npm run build"
   },
   "devDependencies": {
