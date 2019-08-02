@@ -60,9 +60,10 @@ class Projectile {
 
     let frictionTime = 0;
 
-    let yPos =
-      this.initYPos + this.initVy * t + (1 / 2) * this.g * Math.pow(t, 2);
-    yPos = Math.max(this.minYPos, yPos);
+    let yPos = Math.max(
+      this.minYPos,
+      this.initYPos + this.initVy * t + (1 / 2) * this.g * Math.pow(t, 2)
+    );
 
     if (this.projectileAnimation > 1 && yPos <= this.minYPos) {
       this.frictionStartTime = this.frictionStartTime || t;
