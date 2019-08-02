@@ -53,10 +53,8 @@ class Projectile {
 
   projectileFrame(t) {
     this.animationStartTime = this.animationStartTime || t;
-    t = t - this.animationStartTime;
-
-    // seconds
-    t = t / 1000;
+    // in seconds
+    t = (t - this.animationStartTime) / 1000;
 
     let frictionTime = 0;
 
