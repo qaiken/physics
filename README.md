@@ -14,6 +14,14 @@
 npm i
 ```
 
+## Publishing
+
+```
+lerna version
+```
+
+then submit PR to master
+
 ## Packages
 
 [jumpy](https://github.com/qaiken/physics/tree/master/packages/physics-jumpy)
